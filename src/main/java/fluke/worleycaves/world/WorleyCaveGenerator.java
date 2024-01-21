@@ -47,10 +47,7 @@ public class WorleyCaveGenerator extends MapGenCaves {
     private static boolean additionalWaterChecks;
 
     public WorleyCaveGenerator() {
-        // TODO noise should probably be seeded with world seed
         worleyF1divF3.setFrequency(0.016f);
-
-        displacementNoisePerlin.setNoiseType(FastNoise.NoiseType.Perlin);
         displacementNoisePerlin.setFrequency(0.05f);
 
         maxCaveHeight = Configs.maxCaveHeight;
@@ -97,15 +94,20 @@ public class WorleyCaveGenerator extends MapGenCaves {
             }
         }
 
+        displacementNoisePerlin.setSeed((int) worldIn.getSeed());
+
         debugValueAdjustments();
+        // spotless:off
 //        boolean logTime = false; // TODO turn off
 //        long start = 0;
 //        if (logTime) {
 //            start = System.nanoTime();
 //        }
+        // spotless:on
 
         this.generateWorleyCaves(x, z, blocks);
 
+        // spotless:off
 //        if (logTime) {
 //            genTime[currentTimeIndex] = System.nanoTime() - start;// System.currentTimeMillis() - start;
 //            sum += genTime[currentTimeIndex];
@@ -119,6 +121,7 @@ public class WorleyCaveGenerator extends MapGenCaves {
 //                currentTimeIndex = 0;
 //            }
 //        }
+        // spotless:on
     }
 
     protected void generateWorleyCaves(int chunkX, int chunkZ, Block[] blocks) {

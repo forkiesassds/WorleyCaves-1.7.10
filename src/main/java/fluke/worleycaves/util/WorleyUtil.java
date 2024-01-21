@@ -304,9 +304,9 @@ public class WorleyUtil {
         y *= m_frequency;
         z *= m_frequency;
 
-        int xr = FastNoise.FastFloor(x) - 1;
-        int yr = FastNoise.FastFloor(y) - 1;
-        int zr = FastNoise.FastFloor(z) - 1;
+        int xr = FastNoise.fastFloor(x) - 1;
+        int yr = FastNoise.fastFloor(y) - 1;
+        int zr = FastNoise.fastFloor(z) - 1;
         int xrPrime = xr * X_PRIME;
         int yrPrime = yr * Y_PRIME;
         int zrPrime = zr * Z_PRIME;

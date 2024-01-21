@@ -417,7 +417,6 @@ if (identifiedVersion == versionOverride) {
     throw new GradleException("Invalid version: '$identifiedVersion' does not match version pattern '$versionPattern'")
 }
 
-group = "com.github.GTNewHorizons"
 if (project.hasProperty("customArchiveBaseName") && customArchiveBaseName) {
     base {
         archivesName = customArchiveBaseName
